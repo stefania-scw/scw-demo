@@ -48,7 +48,9 @@ public class User {
       stmt = cxn.createStatement();
       System.out.println("Opened database successfully");
 
-      // TODO: query database
+      String query = "select * from users where username = '" + encodeForSQL(un) + "' limit 1";
+      System.out.println(query);
+      ResultSet rs = stmt.executeQuery(query);
       
       cxn.close();
     } catch (Exception e) {
